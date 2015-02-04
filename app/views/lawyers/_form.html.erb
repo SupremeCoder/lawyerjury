@@ -1,4 +1,4 @@
-<%= form_for(@lawyer) do |f| %>
+<%= form_for(@lawyer, :html => { multipart: true }) do |f| %>
   <% if @lawyer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@lawyer.errors.count, "error") %> prohibited this lawyer from being saved:</h2>
@@ -42,6 +42,10 @@
   <div class="form-group">
     <%= f.label :practice %><br>
     <%= f.text_field :practice, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :image %><br>
+    <%= f.file_field :image, class: "form-control" %>
   </div>
   <div class="actions">
     <%= f.submit class: "btn btn-primary" %>
