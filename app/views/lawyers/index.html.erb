@@ -28,7 +28,7 @@ Leave reviews and ratings to share your experience with others.</h3>
         <td><%= lawyer.state %></td>
         <td><%= lawyer.zip %></td>
         <td><%= lawyer.phone %></td>
-        <td><%= lawyer.website %></td>
+        <td><%= link_to lawyer.website, lawyer.website %></td>
         <td><%= lawyer.practice %></td>
         <td><%= link_to 'Show', lawyer, class: "btn btn-link" %></td>
         <td><%= link_to 'Edit', edit_lawyer_path(lawyer), class: "btn btn-link" %></td>
