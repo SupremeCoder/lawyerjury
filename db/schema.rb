@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150205190409) do
+ActiveRecord::Schema.define(version: 20150205231257) do
 
   create_table "lawyers", force: true do |t|
     t.string   "name"
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 20150205190409) do
     t.string   "address"
     t.string   "phone"
     t.string   "website"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reviews", force: true do |t|
+    t.integer  "rating"
+    t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
