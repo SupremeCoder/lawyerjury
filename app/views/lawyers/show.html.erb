@@ -40,5 +40,7 @@
   <%= @lawyer.practice %>
 </p>
 
+<%= link_to "Write a Review", new_lawyer_review_path(@lawyer), class: "btn btn-primary" %>
+
 <%= link_to 'Edit', edit_lawyer_path(@lawyer), class: "btn btn-link" %> |
 <%= link_to 'Back', lawyers_path, class: "btn btn-link" %>
