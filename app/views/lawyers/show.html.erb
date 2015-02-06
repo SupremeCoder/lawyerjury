@@ -1,9 +1,10 @@
-<%= image_tag @lawyer.image_url %>
+<div class="row">
+  <div class="col-md-5">
+    <%= image_tag @lawyer.image_url %>
 
-<p>
-  <strong>Name:</strong>
+<h2>
   <%= @lawyer.name %>
-</p>
+</h2>
 
 <p>
   <strong>Address:</strong>
@@ -32,7 +33,7 @@
 
 <p>
   <strong>Website:</strong>
-  <%= @lawyer.website %>
+  <%= link_to @lawyer.website, @lawyer.website %>
 </p>
 
 <p>
@@ -41,6 +42,20 @@
 </p>
 
 <%= link_to "Write a Review", new_lawyer_review_path(@lawyer), class: "btn btn-primary" %>
+  </div>
+
+  <div class="col-md-7">
+    <% if @reviews.blank? %>
+      <h3>No reviews yet. Be the first to write one!</h3>
+      <% else %>
+  <% @reviews.each do |review| %>
+  <p><%= review.rating %></p>
+  <p><%= review.comment %></p>
+      <% end %>
+
+  <% end %>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_lawyer_path(@lawyer), class: "btn btn-link" %> |
 <%= link_to 'Back', lawyers_path, class: "btn btn-link" %>

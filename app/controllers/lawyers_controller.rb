@@ -10,6 +10,7 @@ class LawyersController < ApplicationController
   # GET /lawyers/1
   # GET /lawyers/1.json
   def show
+    @reviews = Review.where(lawyer_id: @lawyer.id)
   end
 
   # GET /lawyers/new
