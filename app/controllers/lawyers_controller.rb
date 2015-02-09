@@ -10,7 +10,12 @@ class LawyersController < ApplicationController
   # GET /lawyers/1
   # GET /lawyers/1.json
   def show
-    @reviews = Review.where(lawyer_id: @lawyer.id)
+    @reviews = Review.where(lawyer_id: @lawyer.id).order("created_at DESC")
+    if @reviews.blank?
+      @avg_rating = 0
+    else
+    @avg_rating = @reviews.average(:rating).round(2)
+    end
   end
 
   # GET /lawyers/new
