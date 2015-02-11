@@ -1,7 +1,8 @@
 <%= form_for(@lawyer, :html => { multipart: true }) do |f| %>
   <% if @lawyer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@lawyer.errors.count, "error") %> prohibited this lawyer from being saved:</h2>
+     <div id="error_explanation" class="alert alert-danger alert-dismissable">
+       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4><%= pluralize(@lawyer.errors.count, "error") %> prohibited this lawyer from being saved:</h4>
 
       <ul>
       <% @lawyer.errors.full_messages.each do |message| %>
@@ -13,35 +14,35 @@
 
   <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name, class: "form-control" %>
+    <%= f.text_field :name, class: "form-control", placeholder: "Lawyer Name" %>
   </div>
   <div class="form-group">
     <%= f.label :address %><br>
-    <%= f.text_field :address, class: "form-control" %>
+    <%= f.text_field :address, class: "form-control", placeholder: "123 Street Name" %>
   </div>
   <div class="form-group">
     <%= f.label :city %><br>
-    <%= f.text_field :city, class: "form-control" %>
+    <%= f.text_field :city, class: "form-control", placeholder: "Cleveland" %>
   </div>
   <div class="form-group">
     <%= f.label :state %><br>
-    <%= f.text_field :state, class: "form-control" %>
+    <%= f.text_field :state, class: "form-control", placeholder: "OH" %>
   </div>
   <div class="form-group">
     <%= f.label :zip %><br>
-    <%= f.text_field :zip, class: "form-control" %>
+    <%= f.text_field :zip, class: "form-control", placeholder: "44444" %>
   </div>
   <div class="form-group">
     <%= f.label :phone %><br>
-    <%= f.text_field :phone, class: "form-control" %>
+    <%= f.text_field :phone, class: "form-control", placeholder: "(123) 456-7890" %>
   </div>
   <div class="form-group">
     <%= f.label :website %><br>
-    <%= f.text_field :website, class: "form-control" %>
+    <%= f.text_field :website, class: "form-control", placeholder: "http://www.domain.com" %>
   </div>
   <div class="form-group">
     <%= f.label :practice %><br>
-    <%= f.text_field :practice, class: "form-control" %>
+    <%= f.text_field :practice, class: "form-control", placeholder: "Personal Injury" %>
   </div>
   <div class="form-group">
     <%= f.label :image %><br>
