@@ -1,6 +1,8 @@
 class Lawyer < ActiveRecord::Base
 	mount_uploader :image, ImageUploader
 
+    searchkick
+
 	has_many :reviews
 
 	validates :name, :address, :city, :state, :zip, :phone, :website, :practice, :image, presence: true

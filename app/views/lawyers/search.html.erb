@@ -1,0 +1,38 @@
+<table class="table table-hover table-condensed">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Phone</th>
+      <th>Website</th>
+      <th>Practice</th>
+
+      <% if user_signed_in? && current_user.admin? %>
+      <th colspan="2"></th>
+      <% end %>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lawyers.each do |lawyer| %>
+      <tr>
+        <td><%= link_to lawyer.name, lawyer %></td>
+        <td><%= lawyer.address %></td>
+        <td><%= lawyer.city %></td>
+        <td><%= lawyer.state %></td>
+        <td><%= lawyer.zip %></td>
+        <td><%= lawyer.phone %></td>
+        <td><%= link_to lawyer.website, lawyer.website %></td>
+        <td><%= lawyer.practice %></td>
+        <% if user_signed_in? && current_user.admin? %>
+          <td><%= link_to 'Edit', edit_lawyer_path(lawyer), class: "btn btn-link" %></td>
+          <td><%= link_to 'Destroy', lawyer, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-link" %></td>
+          <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
